@@ -13,7 +13,7 @@ public class LoginController {
 	@RequestMapping(value="/options", method=RequestMethod.POST)
 	public ModelAndView loadOptions(@RequestParam String userName) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("productSelection");
+		mav.setViewName("manageProject");
 		mav.addObject("username", userName);
 		
 		return mav;

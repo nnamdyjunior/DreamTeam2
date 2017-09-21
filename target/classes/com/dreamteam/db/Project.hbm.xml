@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Sep 20, 2017 11:11:05 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="RealMadrid" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.maruthi.hibernate.Project" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="project">
+        <id name="projectId" type="int">
+            <column name="project_id"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="projectName" optimistic-lock="true" type="string" unique="false">
+            <column name="project_name" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
