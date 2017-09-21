@@ -4,9 +4,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<<style src="./styles/fanPage"></style>
 <title>HVAC Fans</title>
 </head>
 <body>
 
+    <div class="container">
+
+        <div class="sidebar">
+
+        </div>
+
+        <div class="fanslist">
+
+        </div>
+
+    </div>
 </body>
 </html>

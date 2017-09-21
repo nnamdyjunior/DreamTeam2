@@ -5,7 +5,11 @@
 <h2>Hello World!</h2>
 <form action="./projects" method="post">
 	<input type="text" name="userName">
-	<input type="submit" value="submit">
+	<input type="submit" value="projects">
+</form>
+<form action="./fans" method="post">
+	<input type="text" name="userName">
+	<input type="submit" value="fans">
 </form>
 </body>
 </html>
