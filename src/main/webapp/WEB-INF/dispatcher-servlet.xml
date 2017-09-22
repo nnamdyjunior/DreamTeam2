@@ -25,7 +25,7 @@
 	</bean>
 	
     <mvc:annotation-driven />
-    
+    <mvc:resources mapping="/resources/**" location="/resources/" />
 	
 	<!-- <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PlaceholderConfigurerSupport"
 	p:location=></bean> -->
@@ -39,10 +39,9 @@
     
     <!-- Application Server Instance Configuration -->
 
-	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-			>
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 			<property name="location"><value>./META-INF/jdbc.properties</value></property>
-			</bean>
+	</bean>
  
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
 		<property name="driverClassName"><value>${jdbc.driverClassName}</value></property>

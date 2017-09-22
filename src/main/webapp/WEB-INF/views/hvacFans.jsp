@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="d" uri="http://www.springframework.org/tags" %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,12 +30,11 @@
     }
 
     div#sidebar{
-        background: lightcoral;
-        height: 100%;
+        background: radial-gradient(skyblue, white);
     }
 
     div#fanslist{
-        background: lightgreen;
+        background: radial-gradient(skyblue, white);
     }
     
 </style>
@@ -45,7 +47,7 @@
             <div class="col-md-3" id="sidebar">
                 <div class="well well-sm">
 					<p>
-  						<input type="text" id="airflow" readonly style="border:0; color:#f6931f; width:100%">
+  						<input type="text" id="airflow" readonly style="border:0; color:black; width:100%">
 					</p>
  
 					<div id="slider-range"></div>
@@ -53,7 +55,7 @@
             		
             		<div class="well well-sm">
 					<p>
-  						<input type="text" id="maxPower" readonly style="border:0; color:#f6931f; width:100%">
+  						<input type="text" id="maxPower" readonly style="border:0; color:black; width:100%">
 					</p>
  
 					<div id="slider-range2"></div>
@@ -61,7 +63,7 @@
             		
             		<div class="well well-sm">
 					<p>
-  						<input type="text" id="sound" readonly style="border:0; color:#f6931f; width:100%">
+  						<input type="text" id="sound" readonly style="border:0; color:black; width:100%">
 					</p>
  
 					<div id="slider-range3"></div>
@@ -69,7 +71,7 @@
             		
             		<div class="well well-sm">
 					<p>
-  						<input type="text" id="diameter" readonly style="border:0; color:#f6931f; width:100%">
+  						<input type="text" id="diameter" readonly style="border:0; color:black; width:100%">
 					</p>
  
 					<div id="slider-range4"></div>
@@ -77,7 +79,7 @@
             		
             		<div class="well well-sm">
 					<p>
-  						<input type="text" id="firm" readonly style="border:0; color:#f6931f; width:100%">
+  						<input type="text" id="firm" readonly style="border:0; color:black; width:100%">
 					</p>
  
 					<div id="slider-range5"></div>
@@ -85,7 +87,7 @@
             		
             		<div class="well well-sm">
 					<p>
-  						<input type="text" id="global" readonly style="border:0; color:#f6931f; width:100%">
+  						<input type="text" id="global" readonly style="border:0; color:black; width:100%">
 					</p>
  
 					<div id="slider-range6"></div>
@@ -93,16 +95,24 @@
 			</div>
             <div class="col-md-9" id="fanslist">
                 <div class="row">
-                		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-				    		<div class="thumbnail">
-				      		<img src="thumb2.png" alt="...">
-				      		<div class="caption">
-				        			<h3>Item 1</h3>
-				        			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				        			<p><a href="#" class="btn btn-primary" role="button">Add to Project</a></p>
-				      		</div>
-				    		</div>
-				  	</div>
+                		<c:forEach items="${fansList}" var="fan">
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+					    		<div class="thumbnail">
+					    		<%-- <d:param name="" value=""></d:param>
+					    		"<d:url value="/resources/images/fancom.jpg" />" --%>
+					      		<img src='<d:url value="/resources/images/${fan.itemImg }.png"></d:url> ' 
+					      			 alt="..."
+					      			 width="40px" height="40px">
+					      		<div class="caption">
+					        			<h5>${fan.itemName }</h5>
+					        			<p>${fan.productType } <br>${fan.year } <br>${fansSettingsList.get(2).model }</p>
+					        			
+					        			<p><a href="./projects" class="btn btn-primary" role="button">Add to Project</a></p>
+					      		</div>
+					    		</div>
+					  	</div>
+					</c:forEach>
+                		
 				  	
 				  	
                 </div>
