@@ -95,17 +95,17 @@
 			</div>
             <div class="col-md-9" id="fanslist">
                 <div class="row">
-                		<c:forEach items="${fansList}" var="fan">
+                		<c:forEach var="i" begin="0" end="9" step="1" >
 						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 					    		<div class="thumbnail">
 					    		<%-- <d:param name="" value=""></d:param>
 					    		"<d:url value="/resources/images/fancom.jpg" />" --%>
-					      		<img src='<d:url value="/resources/images/${fan.itemImg }.png"></d:url> ' 
+					      		<img src='<d:url value="/resources/images/${fansList.get(i).itemImg }.png"></d:url> ' 
 					      			 alt="..."
 					      			 width="40px" height="40px">
 					      		<div class="caption">
-					        			<h5>${fan.itemName }</h5>
-					        			<p>${fan.productType } <br>${fan.year } <br>${fansSettingsList.get(2).model }</p>
+					        			<h5>${fansList.get(i).itemName }</h5>
+					        			<p>${fansList.get(i).productType } <br>${fansList.get(i).year } <br>${fansSettingsList.get(i).model }</p>
 					        			
 					        			<p><a href="./projects" class="btn btn-primary" role="button">Add to Project</a></p>
 					      		</div>
