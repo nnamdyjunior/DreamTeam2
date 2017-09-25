@@ -10,11 +10,20 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
 	//write your code here
 	
-	@RequestMapping(value="/options", method=RequestMethod.POST)
-	public ModelAndView loadOptions(@RequestParam String userName) {
+	@RequestMapping(value="/select", method=RequestMethod.POST)
+	public ModelAndView loadOptions(@RequestParam String username, @RequestParam String password) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("manageProject");
-		mav.addObject("username", userName);
+		
+		if(!username.equals("nnamdy") && !password.equals("junior")) {
+			mav.setViewName("index");
+			mav.addObject("message", "Incorrect Username/Password!");
+			
+			return mav;
+		}
+		
+		
+		mav.setViewName("productSelection");
+		mav.addObject("username", username);
 		
 		return mav;
 	}
