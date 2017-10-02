@@ -27,13 +27,13 @@
 
 <style>
     html{
-        background: radial-gradient(skyblue, white);
+        background: white;
     }
 
 </style>
 </head>
 <body>
-	<div class="jumbotron">
+	<div class="jumbotron" style="background: radial-gradient(skyblue, white);">
 		<div class="col-md-3" id="logo" style="position: relative; top: -25px;">
 			<img src='<d:url value="/resources/images/realmadrid.jpg"></d:url> ' class="img-rounded" alt="Hala Madrid" width="200px" height="50px">	
 		</div>
@@ -69,7 +69,7 @@
 					<li><a href="./projects">Manage Projects</a></li>
 					<li><a href="#">Edit Profile</a></li>
 					<li class="divider"></li>
-					<li><a href="#">Sign Out</a></li>
+					<li><a href="./logout">Sign Out</a></li>
 	    			</ul>
 	    			<img src='<d:url value="/resources/images/ramos.jpg"></d:url> ' class="img-circle" alt="Sergio Ramos" width="50px" height="50px">
 	    		</div>

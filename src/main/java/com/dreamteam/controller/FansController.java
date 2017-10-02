@@ -12,9 +12,12 @@ import org.springframework.web.servlet.ModelAndView;
 import com.dreamteam.db.Fan;
 import com.dreamteam.db.FanSettings;
 import com.dreamteam.db.Project;
+import com.dreamteam.service.FanDetailsServiceInterface;
 import com.dreamteam.service.FansServiceInterface;
 import com.dreamteam.service.FansSettingsServiceInterface;
+import com.dreamteam.service.ManufacturerServiceInterface;
 import com.dreamteam.service.ProjectServiceInterface;
+import com.dreamteam.service.SalesRepServiceInterface;
 
 
 @Controller
@@ -28,6 +31,15 @@ public class FansController {
 	
 	@Autowired 
 	ProjectServiceInterface projectService;
+	
+	@Autowired
+	ManufacturerServiceInterface manufacturerService;
+	
+	@Autowired
+	SalesRepServiceInterface salesRepService;
+	
+	@Autowired
+	FanDetailsServiceInterface fanDetailsService;
 	
 	@RequestMapping("/fans")
 	public String allProj(Map<String, Object> map) {
@@ -51,6 +63,9 @@ public class FansController {
 		map.put("fansList", fansService.getAllFans());
 		map.put("fansSettingsList", fansSettingsService.getAllFanSettings());
 		map.put("projectList", projectService.getAllProjects());
+		map.put("manufacturerList", manufacturerService.getAllManufacturers());
+		map.put("salesReps", salesRepService.getAllSalesReps());
+		map.put("fanDetailsList", fanDetailsService.getAllFanDetails());
 		
 		return "productInfo";
 	}

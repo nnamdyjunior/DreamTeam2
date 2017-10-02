@@ -7,5 +7,9 @@
         <mapping class="com.dreamteam.db.Project" />
         <mapping class="com.dreamteam.db.Fan"/>
         <mapping class="com.dreamteam.db.FanSettings"/>
+        <mapping class="com.dreamteam.db.Users"/>
+        <mapping class="com.dreamteam.db.Manufacturer"/>
+        <mapping class="com.dreamteam.db.SalesRep"/>
+        <mapping class="com.dreamteam.db.FanDetails"/>
     </session-factory>
 </hibernate-configuration>

@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class FanSettings implements Serializable{
 	
 	private int settingsID, airflow, firm, global, fanSpeed, numFanSpeed, height, weight, itemID;
-	double maxPower, maxSpeedSound, fanSweepDia, voltage;
+	float maxPower, maxSpeedSound, fanSweepDia, voltage;
 	private String brand, series, model;
 	
 	public FanSettings() {
@@ -20,7 +20,7 @@ public class FanSettings implements Serializable{
 	}
 	
 	public FanSettings(int settingsID, int airflow, int firm, int global, int fanSpeed, int numFanSpeed, int height,
-			int weight, int itemID, double maxPower, double maxSpeedSound, double fanSweepDia, double voltage,
+			int weight, int itemID, float maxPower, float maxSpeedSound, float fanSweepDia, float voltage,
 			String brand, String series, String model) {
 		this.settingsID = settingsID;
 		this.airflow = airflow;
@@ -77,7 +77,7 @@ public class FanSettings implements Serializable{
 		this.global = global;
 	}
 
-	@Column(name = "fanspeed", nullable = false)
+	@Column(name = "fan_speed", nullable = false)
 	public int getFanSpeed() {
 		return fanSpeed;
 	}
@@ -86,7 +86,7 @@ public class FanSettings implements Serializable{
 		this.fanSpeed = fanSpeed;
 	}
 
-	@Column(name = "numOfFanSpeed", nullable = false)
+	@Column(name = "num_of_fan_speed", nullable = false)
 	public int getNumFanSpeed() {
 		return numFanSpeed;
 	}
@@ -122,39 +122,39 @@ public class FanSettings implements Serializable{
 		this.itemID = itemID;
 	}
 
-	@Column(name = "maxpower", nullable = false)
-	public double getMaxPower() {
+	@Column(name = "max_power", nullable = false)
+	public float getMaxPower() {
 		return maxPower;
 	}
 
-	public void setMaxPower(double maxPower) {
+	public void setMaxPower(float maxPower) {
 		this.maxPower = maxPower;
 	}
 
-	@Column(name = "maxspeedsound", nullable = false)
-	public double getMaxSpeedSound() {
+	@Column(name = "sound_at_max_speed", nullable = false)
+	public float getMaxSpeedSound() {
 		return maxSpeedSound;
 	}
 
-	public void setMaxSpeedSound(double maxSpeedSound) {
+	public void setMaxSpeedSound(float maxSpeedSound) {
 		this.maxSpeedSound = maxSpeedSound;
 	}
 
-	@Column(name = "fansweepdia", nullable = false)
-	public double getFanSweepDia() {
+	@Column(name = "fan_sweep_diameter", nullable = false)
+	public float getFanSweepDia() {
 		return fanSweepDia;
 	}
 
-	public void setFanSweepDia(double fanSweepDia) {
+	public void setFanSweepDia(float fanSweepDia) {
 		this.fanSweepDia = fanSweepDia;
 	}
 
-	@Column(name = "operatingvoltage", nullable = false)
-	public double getVoltage() {
+	@Column(name = "operating_voltage", nullable = false)
+	public float getVoltage() {
 		return voltage;
 	}
 
-	public void setVoltage(double voltage) {
+	public void setVoltage(float voltage) {
 		this.voltage = voltage;
 	}
 

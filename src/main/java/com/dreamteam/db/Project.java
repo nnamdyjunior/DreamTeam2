@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Table(name = "project", catalog = "RealMadrid")
 public class Project implements java.io.Serializable {
 
-	private int projectId;
+	private int projectId, userID;
 	private String projectName;
 
 	public Project() {
@@ -34,6 +34,19 @@ public class Project implements java.io.Serializable {
 	public void setProjectId(int projectId) {
 		this.projectId = projectId;
 	}
+
+	@Id
+
+	@Column(name = "user_id", nullable = false)
+	public int getUserID() {
+		return userID;
+	}
+	
+
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
+	
 
 	@Column(name = "project_name", nullable = false)
 	public String getProjectName() {

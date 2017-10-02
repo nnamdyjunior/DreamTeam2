@@ -2,10 +2,14 @@ package com.dreamteam.db;
 
 import java.io.Serializable;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "items", catalog = "RealMadrid")
@@ -27,6 +31,7 @@ public class Fan implements Serializable{
 	}
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "item_id", unique = true, nullable = false)
 	public int getItemID() {
 		return itemID;

@@ -29,26 +29,11 @@
     html{
         background: radial-gradient(skyblue, white);
     }
-
-    div#sidebar{
-        background: radial-gradient(skyblue, white);
-    }
-
-    div#fanslist{
-        background: radial-gradient(skyblue, white);
-    }
     
-    div#thumbContents{
-    		text-align: center;
-    }
-    
-    div#thumbContents:hover{
-    		background: skyblue;
-    }
 </style>
 </head>
 <body>
-	<div class="jumbotron">
+	<div class="jumbotron" style="background: radial-gradient(skyblue, white);">
 		<div class="row">
 			<div class="col-md-11"></div>
 			<div class="col-md-1"><a href="#">Sign Up</a></div>
@@ -102,5 +87,12 @@
 		</div>
 			
 	</div>
+	
+	<script>
+	history.pushState(null, null, document.URL);
+	window.addEventListener('popstate', function () {
+	    history.pushState(null, null, document.URL);
+	});
+	</script>
 </body>
 </html>

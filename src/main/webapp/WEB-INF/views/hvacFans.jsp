@@ -27,15 +27,15 @@
 
 <style>
     html{
-        background: radial-gradient(skyblue, white);
+        background: white;
     }
 
     div#sidebar{
-        background: radial-gradient(skyblue, white);
+        background: white;
     }
 
     div#fanslist{
-        background: radial-gradient(skyblue, white);
+        background: white;
     }
     
     div#thumbContents{
@@ -48,7 +48,7 @@
 </style>
 </head>
 <body>
-	<div class="jumbotron">
+	<div class="jumbotron" style="background: radial-gradient(skyblue, white);">
 		<div class="col-md-3" id="logo" style="position: relative; top: -25px;">
 			<img src='<d:url value="/resources/images/realmadrid.jpg"></d:url> ' class="img-rounded" alt="Hala Madrid" width="200px" height="50px">	
 		</div>
@@ -65,7 +65,7 @@
 	    						</ul>
 	    					</div>
 					</span>
-	    				<input type="text" class="form-control" placeholder="search...">
+	    				<input type="text" class="form-control" placeholder="search..." id="searchBar1">
 	    				<div class="input-group-btn">
 	      				<button class="btn btn-default" type="submit" style="position: relative; top: -8px;">
 	        					<i class="glyphicon glyphicon-search"></i>
@@ -84,7 +84,7 @@
 					<li><a href="./projects">Manage Projects</a></li>
 					<li><a href="#">Edit Profile</a></li>
 					<li class="divider"></li>
-					<li><a href="#">Sign Out</a></li>
+					<li><a href="./logout">Sign Out</a></li>
 	    			</ul>
 	    			<img src='<d:url value="/resources/images/ramos.jpg"></d:url> ' class="img-circle" alt="Sergio Ramos" width="50px" height="50px">
 	    		</div>
@@ -96,72 +96,105 @@
        <div class="row">
             <div class="col-md-3" id="sidebar">
             		<div>
-            			Search:&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn">Clear</button>
+            			Search:&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn" onclick="clearSearch()">Clear</button>
             		</div>
             		<br>
             		<ul class="nav nav-pills">
   					<li class="active"><a href="#">Products</a></li>
   					<li><a href="#">Projects</a></li>
 				</ul>
-                <div class="well well-sm">
-					<p>
-  						<input type="text" id="airflow" readonly style="border:0; color:black; width:100%">
-					</p>
+				
+				<!-- collapsible product type -->
+				<a href="#prodType" class="btn btn-info" data-toggle="collapse" style="width:100%; background: radial-gradient(skyblue, white); color:black;">Product Type</a>
+					
+				<div id="prodType" class="collapse">
+				</div>
+				
+				<!-- collapsible technical specs -->
+				<a href="#techSpecs" class="btn btn-info" data-toggle="collapse" style="width:100%; background: radial-gradient(skyblue, white); color:black;">Technical Specifications</a>
+					
+				<div id="techSpecs" class="collapse">
+					<div class="well well-sm">
+						<p>
+  							<input type="text" id="airflow" readonly style="border:0; color:black; width:100%">
+						</p>
  
 					<div id="slider-range"></div>
-            		</div>
-            		
-            		<div class="well well-sm">
-					<p>
-  						<input type="text" id="maxPower" readonly style="border:0; color:black; width:100%">
-					</p>
- 
-					<div id="slider-range2"></div>
-            		</div>
-            		
-            		<div class="well well-sm">
-					<p>
-  						<input type="text" id="sound" readonly style="border:0; color:black; width:100%">
-					</p>
- 
-					<div id="slider-range3"></div>
-            		</div>
-            		
-            		<div class="well well-sm">
-					<p>
-  						<input type="text" id="diameter" readonly style="border:0; color:black; width:100%">
-					</p>
- 
-					<div id="slider-range4"></div>
-            		</div>
-            		
-            		<div class="well well-sm">
-					<p>
-  						<input type="text" id="firm" readonly style="border:0; color:black; width:100%">
-					</p>
- 
-					<div id="slider-range5"></div>
-            		</div>
-            		
-            		<div class="well well-sm">
-					<p>
-  						<input type="text" id="global" readonly style="border:0; color:black; width:100%">
-					</p>
- 
-                    <div id="slider-range6"></div>
-                    </div>
-                    
-                    <div class="well well-sm">
-                    <p>
-                        <input type="text" id="height" readonly style="border:0; color:black; width:100%">
-                    </p>
-
-                    <div id="slider-range7"></div>
-            		</div>
+	            		</div>
+	            		
+	            		<div class="well well-sm">
+						<p>
+	  						<input type="text" id="maxPower" readonly style="border:0; color:black; width:100%">
+						</p>
+	 
+						<div id="slider-range2"></div>
+	            		</div>
+	            		
+	            		<div class="well well-sm">
+						<p>
+	  						<input type="text" id="sound" readonly style="border:0; color:black; width:100%">
+						</p>
+	 
+						<div id="slider-range3"></div>
+	            		</div>
+	            		
+	            		<div class="well well-sm">
+						<p>
+	  						<input type="text" id="diameter" readonly style="border:0; color:black; width:100%">
+						</p>
+	 
+						<div id="slider-range4"></div>
+	            		</div>
+	            		
+	            		<div class="well well-sm">
+	                    <p>
+	                        <input type="text" id="height" readonly style="border:0; color:black; width:100%">
+	                    </p>
+	
+	                    <div id="slider-range7"></div>
+	            		</div>
+				</div>
+                
+                <!-- collapsible brand -->
+				<a href="#brandType" class="btn btn-info" data-toggle="collapse" style="width:100%; background: radial-gradient(skyblue, white); color:black;">Brand</a>
+					
+				<div id="brandType" class="collapse">
+				</div>
+				
+                <!-- collapsible past selections -->
+            		<a href="#pastSel" class="btn btn-info" data-toggle="collapse" style="width:100%; background: radial-gradient(skyblue, white); color:black;">Past Selections</a>
+					
+				<div id="pastSel" class="collapse">
+	            		<div class="well well-sm">
+						<p>
+	  						<input type="text" id="firm" readonly style="border:0; color:black; width:100%">
+						</p>
+	 
+						<div id="slider-range5"></div>
+	            		</div>
+	            		
+	            		<div class="well well-sm">
+						<p>
+	  						<input type="text" id="global" readonly style="border:0; color:black; width:100%">
+						</p>
+	 
+	                    <div id="slider-range6"></div>
+	                 </div>
+                 </div>
+                
+                <!-- collapsible certifications -->
+				<a href="#certifications" class="btn btn-info" data-toggle="collapse" style="width:100%; background: radial-gradient(skyblue, white); color:black;">Certifications</a>
+					
+				<div id="certifications" class="collapse">
+				</div> 
+				   
 			</div>
             <div class="col-md-9" id="fanslist">
             		<div class="row">
-            			<div class="col-md-10"></div>
+            			<div class="col-md-10">
+            			<a href="./select" style="font-size:14pt; font-weight:bold;">Mechanical ></a>
+            			<a style="font-size:14pt; font-weight:bold;">HVAC Fans</a>
+            			</div>
             			<div class="col-md-2">
             				<button class="btn btn-primary" onclick="redirect()" style="width:100%;">Compare</button>
             			</div>
@@ -173,9 +206,9 @@
 					    		<div class="thumbnail">
 					    		<%-- <d:param name="" value=""></d:param>
 					    		"<d:url value="/resources/images/fancom.jpg" />" --%>
-					      		<img src='<d:url value="/resources/images/${fansList.get(i).itemImg }.png"></d:url> ' 
+					      		<img src='<d:url value="/resources/images/${fansList.get(i).itemImg }.jpg"></d:url> ' 
 					      			 alt="..."
-					      			 width="40px" height="40px">
+					      			 width="150px" height="150px">
 					      		<div class="caption">
 					        			<h5>${fansSettingsList.get(i).brand }</h5>
 					        			<h5>${fansSettingsList.get(i).series }</h5>
@@ -235,10 +268,79 @@
                 <input id="globalMax" type="text" value="1492" hidden/>
             </div>
        </div>
-
+ 
     </div>
     
     <script>
+    //const search = document.querySelector('searchBar1');
+    document.getElementById('searchBar1').addEventListener('keyup', function(e){
+    		const term = e.target.value.toLowerCase();
+    		const items = [];
+    		var content = document.getElementsByClassName('col-lg-3 col-md-3 col-sm-3 col-xs-3');
+            Array.from(content).forEach(function(item){
+                var nom = item.getElementsByTagName('h5')[1].textContent.toLowerCase();
+                if(nom.indexOf(term) != -1){
+                		item.style.display = 'block';
+                }
+                else{
+                		item.style.display = 'none';
+                }
+            });
+        
+       
+    		
+    });
+    function clearSearch(){
+    		//clear airflow
+    		$( "#slider-range" ).slider({values: [ 0, 10000 ]});
+    		document.getElementById("airflowValueMin").setAttribute("value", 0);
+        document.getElementById("airflowValueMax").setAttribute("value", 10000);
+        $( "#airflow" ).val( "Airflow(CFM): " + $( "#slider-range" ).slider( "values", 0 ) + " - " + $( "#slider-range" ).slider( "values", 1 ) );
+        filter();
+        
+      	//clear maxPower
+		$( "#slider-range2" ).slider({values: [ 5, 100 ]});
+		document.getElementById("maxPowerMin").setAttribute("value", 0);
+	    document.getElementById("maxPowerMax").setAttribute("value", 100);
+	    $( "#maxPower" ).val( "MaxPower(W): " + $( "#slider-range2" ).slider( "values", 0 ) + " - " + $( "#slider-range2" ).slider( "values", 1 ) );
+	    filter();
+	    
+	  	//clear Sound at max speed
+		$( "#slider-range3" ).slider({values: [ 20, 200 ]});
+		document.getElementById("maxSpeedSoundMin").setAttribute("value", 20);
+	    document.getElementById("maxSpeedSoundMax").setAttribute("value", 200);
+	    $( "#sound" ).val( "Mx speed snd(dBA): " + $( "#slider-range3" ).slider( "values", 0 ) + " - " + $( "#slider-range3" ).slider( "values", 1 ) );
+	    filter();
+	    
+	  	//clear fan sweep diameter
+		$( "#slider-range4" ).slider({values: [ 18, 75 ]});
+		document.getElementById("fanSweepDiaMin").setAttribute("value", 0);
+	    document.getElementById("fanSweepDiaMax").setAttribute("value", 100);
+	    $( "#diameter" ).val( "MaxPower(W): " + $( "#slider-range4" ).slider( "values", 0 ) + " - " + $( "#slider-range4" ).slider( "values", 1 ) );
+	    filter();
+	    
+	  	//clear firm
+		$( "#slider-range5" ).slider({values: [ 0, 10 ]});
+		document.getElementById("firmMin").setAttribute("value", 0);
+	    document.getElementById("firmMax").setAttribute("value", 10);
+	    $( "#firm" ).val( "Firm: " + $( "#slider-range5" ).slider( "values", 0 ) + " - " + $( "#slider-range5" ).slider( "values", 1 ) );
+	    filter();
+	    
+	  	//clear global
+		$( "#slider-range6" ).slider({values: [ 0, 1492 ]});
+		document.getElementById("globalMin").setAttribute("value", 0);
+	    document.getElementById("globalMax").setAttribute("value", 1492);
+	    $( "#global" ).val( "Global: " + $( "#slider-range6" ).slider( "values", 0 ) + " - " + $( "#slider-range6" ).slider( "values", 1 ) );
+	    filter();
+	    
+	  	//clear height
+		$( "#slider-range7" ).slider({values: [ 12, 78 ]});
+		document.getElementById("heightMin").setAttribute("value", 12);
+	    document.getElementById("heightMax").setAttribute("value", 78);
+	    $( "#height" ).val( "Height(in): " + $( "#slider-range7" ).slider( "values", 0 ) + " - " + $( "#slider-range7" ).slider( "values", 1 ) );
+	    filter();
+    }
+    
     function selectItem(param) {
         window.location.href = "./viewInfo?item="+param;
     }
@@ -251,7 +353,7 @@
                 xxx.push(item.getElementsByTagName('input')[7].id);
             }
         });
-        console.log(xxx.length);
+        //console.log(xxx.length);
         window.location.href = "./compareFans?items="+xxx;
     }
 

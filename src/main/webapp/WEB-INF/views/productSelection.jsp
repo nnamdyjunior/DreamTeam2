@@ -33,7 +33,7 @@
 </style>
 </head>
 <body>
-	<div class="jumbotron">
+	<div class="jumbotron" style="background: radial-gradient(skyblue, white);">
 		<div class="col-md-3" id="logo" style="position: relative; top: -25px;"></div>
 		<div class="col-md-6" id="search" style="position: relative; top: -15px;">
 			
@@ -41,14 +41,14 @@
 		<div class="col-md-1"></div>
 		<div class="col-md-2" id="user" style="position: relative; top: -25px;">
 			<div class="dropdown">
-     			<button class="btn btn-link" type="button" data-toggle="dropdown">Ramos
+     			<button class="btn btn-link" type="button" data-toggle="dropdown">${username }
 					<span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu">
 					<li><a href="./projects">Manage Projects</a></li>
 					<li><a href="#">Edit Profile</a></li>
 					<li class="divider"></li>
-					<li><a href="#">Sign Out</a></li>
+					<li><a href="./logout">Sign Out</a></li>
 	    			</ul>
 	    			<img src='<d:url value="/resources/images/ramos.jpg"></d:url> ' class="img-circle" alt="Sergio Ramos" width="50px" height="50px">
 	    		</div>
@@ -81,7 +81,7 @@
 		    						</ul>
 		    					</div>
 						</span>
-		    				<input type="text" class="form-control" placeholder="search...">
+		    				<input type="text" class="form-control" placeholder="search..." id="autocomplete">
 		    				<div class="input-group-btn">
 		      				<button class="btn btn-default" type="submit" style="position: relative; top: -8px;">
 		        					<i class="glyphicon glyphicon-search"></i>
@@ -94,5 +94,20 @@
 		</div>
 			
 	</div>
+	
+	<script>
+		$(function(){
+		  var fan = [
+			  "HVAC Fans",
+			  "HVAC Air Conditioners",
+			  "HVAC Air Filters"
+		  ];	  
+		  
+		  $("#autocomplete").autocomplete({
+			  source: fan
+		  });
+		  
+		});
+	</script>
 </body>
 </html>

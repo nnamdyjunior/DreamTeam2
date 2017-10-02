@@ -27,28 +27,13 @@
 
 <style>
     html{
-        background: radial-gradient(skyblue, white);
-    }
-
-    div#sidebar{
-        background: radial-gradient(skyblue, white);
-    }
-
-    div#fanslist{
-        background: radial-gradient(skyblue, white);
+        background: white;
     }
     
-    div#thumbContents{
-    		text-align: center;
-    }
-    
-    div#thumbContents:hover{
-    		background: skyblue;
-    }
 </style>
 </head>
 <body>
-	<div class="jumbotron">
+	<div class="jumbotron" style="background: radial-gradient(skyblue, white);">
 		<div class="col-md-3" id="logo" style="position: relative; top: -25px;">
 			<img src='<d:url value="/resources/images/realmadrid.jpg"></d:url> ' class="img-rounded" alt="Hala Madrid" width="200px" height="50px">	
 		</div>
@@ -84,7 +69,7 @@
 					<li><a href="./projects">Manage Projects</a></li>
 					<li><a href="#">Edit Profile</a></li>
 					<li class="divider"></li>
-					<li><a href="#">Sign Out</a></li>
+					<li><a href="./logout">Sign Out</a></li>
 	    			</ul>
 	    			<img src='<d:url value="/resources/images/ramos.jpg"></d:url> ' class="img-circle" alt="Sergio Ramos" width="50px" height="50px">
 	    		</div>
@@ -123,7 +108,7 @@
 		  					<tr><th colspan="2">DESCRIPTION</th></tr>
 		  				</thead>
 		  				<tbody>
-		  					<tr><td style="background: lightgray;">Manufacturer</td><td>xx</td></tr>
+		  					<tr><td style="background: lightgray;">Manufacturer</td><td>${fansSettingsList.get(item).brand }</td></tr>
 		  					<tr><td style="background: lightgray;">Series</td><td>${fansSettingsList.get(item).series }</td></tr>
 		  					<tr><td style="background: lightgray;">Model</td><td>${fansSettingsList.get(item).model }</td></tr>
 		  				</tbody>
@@ -134,10 +119,10 @@
 		  					<tr><th colspan="2">TYPE</th></tr>
 		  				</thead>
 		  				<tbody>
-		  					<tr><td style="background: lightgray;">Use Type</td><td>xx</td></tr>
+		  					<tr><td style="background: lightgray;">Use Type</td><td>${fansList.get(item).productType }</td></tr>
 		  					<tr><td style="background: lightgray;">Application</td><td>xx</td></tr>
-		  					<tr><td style="background: lightgray;">Mounting Location</td><td>xx</td></tr>
-		  					<tr><td style="background: lightgray;">Accessories</td><td>xx</td></tr>
+		  					<tr><td style="background: lightgray;">Mounting Location</td><td>Roof</td></tr>
+		  					<tr><td style="background: lightgray;">Accessories</td><td>${fanDetailsList.get(item).accessories }</td></tr>
 		  					<tr><td style="background: lightgray;">Model Year</td><td>${fansList.get(item).year }</td></tr>
 		  				</tbody>
 		  			</table>
@@ -170,16 +155,16 @@
 		  					<tr><th colspan="2">SERIES INFORMATION</th></tr>
 		  				</thead>
 		  				<tbody>
-		  					<tr><td style="background: lightgray;">Airfoils - </td></tr>
-		  					<tr><td style="background: white;">Airfoil Finishes - </td></tr>
-		  					<tr><td style="background: lightgray;">Hardware Finishes - </td></tr>
-		  					<tr><td style="background: white;">Motor - </td></tr>
+		  					<tr><td style="background: lightgray;">Airfoils - ${fanDetailsList.get(item).airfoils }</td></tr>
+		  					<tr><td style="background: white;">Airfoil Finishes - ${fanDetailsList.get(item).airfoilFinishes }</td></tr>
+		  					<tr><td style="background: lightgray;">Hardware Finishes - ${fanDetailsList.get(item).hardwareFinishes }</td></tr>
+		  					<tr><td style="background: white;">Motor - ${fanDetailsList.get(item).motor }</td></tr>
 		  					<tr><td style="background: lightgray;">Exceeds ENERGY STAR fan efficiency requirements by up to</td></tr>
-		  					<tr><td style="background: white;">Controls - </td></tr>
-		  					<tr><td style="background: lightgray;">Onboard Sensors - </td></tr>
-		  					<tr><td style="background: white;">Environment - </td></tr>
-		  					<tr><td style="background: lightgray;">Accessories - </td></tr>
-		  					<tr><td style="background: white;">Made in - </td></tr>
+		  					<tr><td style="background: white;">Controls - ${fanDetailsList.get(item).controls }</td></tr>
+		  					<tr><td style="background: lightgray;">Onboard Sensors - ${fanDetailsList.get(item).onboardSensors }</td></tr>
+		  					<tr><td style="background: white;">Environment - ${fanDetailsList.get(item).environment }</td></tr>
+		  					<tr><td style="background: lightgray;">Accessories - ${fanDetailsList.get(item).accessories }</td></tr>
+		  					<tr><td style="background: white;">Made in - USA</td></tr>
 		  				</tbody>
 		  			</table>
 		  </div>
@@ -196,19 +181,19 @@
 		      	<div class="col-md-6">
 		      		<table class="table">
 		      			<tr><td colspan="2">SALES REPRESENTATIVE</td></tr>
-		      			<tr><td style="background: lightgray;">Name</td><td>xx</td></tr>
-		      			<tr><td style="background: lightgray;">Phone</td><td>xx</td></tr>
-		      			<tr><td style="background: lightgray;">Email</td><td>xx</td></tr>
-		      			<tr><td style="background: lightgray;">Web</td><td>xx</td></tr>
+		      			<tr><td style="background: lightgray;">Name</td><td>${salesReps.get(item).name }</td></tr>
+		      			<tr><td style="background: lightgray;">Phone</td><td>${salesReps.get(item).phone }</td></tr>
+		      			<tr><td style="background: lightgray;">Email</td><td>${salesReps.get(item).email }</td></tr>
+		      			<tr><td style="background: lightgray;">Web</td><td>${salesReps.get(item).web }</td></tr>
 		      		</table>
 		      	</div>
 		      	<div class="col-md-6">
 		      		<table class="table">
 		      			<tr><td colspan="2">MANUFACTURER</td></tr>
-		      			<tr><td style="background: lightgray;">Department</td><td>xx</td></tr>
-		      			<tr><td style="background: lightgray;">Phone</td><td>xx</td></tr>
-		      			<tr><td style="background: lightgray;">Email</td><td>xx</td></tr>
-		      			<tr><td style="background: lightgray;">Web</td><td>xx</td></tr>
+		      			<tr><td style="background: lightgray;">Department</td><td>${manufacturerList.get(item).department }</td></tr>
+		      			<tr><td style="background: lightgray;">Phone</td><td>${manufacturerList.get(item).phone }</td></tr>
+		      			<tr><td style="background: lightgray;">Email</td><td>xx${manufacturerList.get(item).email }td></tr>
+		      			<tr><td style="background: lightgray;">Web</td><td>${manufacturerList.get(item).web }</td></tr>
 		      		</table>
 		      	</div>
 		      </div>
